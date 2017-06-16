@@ -15,18 +15,15 @@ void main() {
   // Add event listeners for each box
   getName.onChange.listen((_) {
     name = getName.value;
-    if (name != null && age != null) {
-      output.children.clear();
-      
-      for (var i = 0; i < age; i++) {
-        var newName = new ParagraphElement();
-        newName.text = name;
-        output.children.add(newName);
-      }
-    }
+		namePrinter(name, age, output);
   });
   getAge.onChange.listen((_) {
     age = int.parse(getAge.value);
+		namePrinter(name, age, output);
+  });
+}
+
+void namePrinter(name, age, output) {  
     if (name != null && age != null) {
       output.children.clear();
       
@@ -36,5 +33,4 @@ void main() {
         output.children.add(newName);
       }
     }
-  });
 }
